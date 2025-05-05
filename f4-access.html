@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F4 Scout Portal | Formula Evo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="scout-portal">
+    <nav class="navbar">
+        <div class="logo">FORMULA<span>EVO</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="f4-access.html" class="active">Scout Portal</a></li>
+        </ul>
+        <div class="auth-status">
+            <span id="scoutName">Scout ID: F4TEAM-2024</span>
+            <button id="logoutBtn">Logout</button>
+        </div>
+    </nav>
+
+    <div class="scout-dashboard">
+        <h1>F4 Scout Portal</h1>
+        
+        <div class="scout-tools">
+            <div class="tool-card">
+                <h2>Driver Analytics</h2>
+                <div id="driverStats"></div>
+                <button class="cta-button" id="refreshData">Refresh Data</button>
+            </div>
+            
+            <div class="tool-card">
+                <h2>Contact Drivers</h2>
+                <select id="driverSelect">
+                    <option value="">Select a driver</option>
+                </select>
+                <textarea id="scoutMessage" placeholder="Your message..."></textarea>
+                <button class="cta-button" id="sendMessage">Send Inquiry</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/f4-access.js"></script>
+</body>
+</html>

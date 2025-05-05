@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formula Evo | Racing Development</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">FORMULA<span>EVO</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="drivers.html">Drivers</a></li>
+      <li><a href="track.html">Track</a></li>
+      <li><a href="f4-access.html" class="premium">Scout Portal</a></li>
+      <li id="userPanel"></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <h1>FROM KARTING TO <span>F4</span></h1>
+      <p>Developing future racing champions</p>
+      
+      <div class="track-animation">
+        <img src="images/cars/car-red.png" class="race-car" style="animation-delay: 0s">
+        <img src="images/cars/car-blue.png" class="race-car" style="animation-delay: 1s">
+      </div>
+    </section>
+
+    <section class="data-upload owner-only">
+      <h2>Driver Data Management</h2>
+      <input type="file" id="excelUpload" accept=".xlsx,.xls,.csv">
+      <button id="processData">Update Standings</button>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/excel.js"></script>
+  <script>
+    // Initialize
+    auth.login('owner'); // Change to 'guest' or 'scout' for other views
+  </script>
+  div id="ai-assistant">
+  <div class="ai-header">
+    <img src="images/ai-avatar.png" alt="DeepSeek AI">
+    <h3>Formula Evo Assistant</h3>
+    <button id="minimizeAI">−</button>
+  </div>
+  <div class="ai-chat">
+    <div class="ai-messages"></div>
+    <div class="ai-input">
+      <input type="text" placeholder="Ask about drivers, tracks, or data...">
+      <button id="sendAI">Send</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
