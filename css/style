@@ -1,0 +1,171 @@
+/* Red Theme Variables */
+:root {
+  --primary: #111;
+  --secondary: #222;
+  --accent: #e00;
+  --accent-dark: #900;
+  --text: #fff;
+  --text-muted: #aaa;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--primary);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background: rgba(0,0,0,0.9);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+/* Car Animation */
+.track-animation {
+  height: 100px;
+  background: #333;
+  position: relative;
+  overflow: hidden;
+  margin: 2rem 0;
+  border-top: 3px solid var(--accent);
+  border-bottom: 3px solid var(--accent);
+}
+
+.race-car {
+  position: absolute;
+  width: 120px;
+  animation: race 8s linear infinite;
+}
+
+@keyframes race {
+  0% { left: -150px; }
+  100% { left: 100%; }
+}
+
+/* Excel Upload */
+.data-upload {
+  background: var(--secondary);
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+/* Premium Content */
+.premium {
+  position: relative;
+}
+
+.premium-lock {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--accent);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+/* [Your existing CSS content...] */
+
+/* ====================== */
+/* AI ASSISTANT STYLES */
+/* ====================== */
+
+#ai-assistant {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  background: var(--secondary);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* [Rest of the AI styles from previous answer...] */
+
+/* Make sure this comes AFTER the AI styles */
+@media (max-width: 768px) {
+  /* Your existing mobile styles... */
+  
+  /* Mobile-specific AI adjustments */
+  
+  #ai-assistant {
+    width: 300px;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+  
+:root {
+  /* [Your existing variables...] */
+  
+  /* AI Specific */
+  --ai-primary: var(--accent); /* Uses your red theme */
+  --ai-bg: var(--secondary);   /* Dark background */
+  --ai-text: #ffffff;
+  --ai-user-bg: #333333;
+}
+#ai-assistant {
+  background: var(--ai-bg);
+}
+
+.ai-header {
+  background: var(--ai-primary);
+  color: var(--ai-text);
+}
+
+.user-message .message-text {
+  background: var(--ai-user-bg);
+}
+.navbar {
+  z-index: 1100; /* Above AI */
+}
+.modal {
+  z-index: 1200; /* Above everything */
+}
+@media (max-width: 480px) {
+  #ai-assistant {
+    width: 90%;
+    right: 5%;
+    bottom: 70px; /* Above mobile menu */
+  }
+  
+  .ai-chat {
+    height: 300px;
+  }
+}
+#ai-assistant {
+  will-change: transform, opacity;
+}
+
+.typing-indicator span {
+  will-change: transform;
+}
