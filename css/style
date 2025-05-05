@@ -1,26 +1,52 @@
-/* Red Theme Variables */
+/* ====================== */
+/* VARIABLES & RESET */
+/* ====================== */
 :root {
+  /* Color Scheme */
   --primary: #111;
   --secondary: #222;
   --accent: #e00;
   --accent-dark: #900;
   --text: #fff;
   --text-muted: #aaa;
+  
+  /* Spacing */
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  
+  /* AI Specific */
+  --ai-primary: var(--accent);
+  --ai-bg: var(--secondary);
+  --ai-text: #ffffff;
+  --ai-user-bg: #333333;
 }
 
-/* Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ====================== */
+/* TYPOGRAPHY & BASE */
+/* ====================== */
 body {
   font-family: 'Roboto', sans-serif;
   background: var(--primary);
   color: var(--text);
   line-height: 1.6;
+  padding-top: 80px; /* Offset for fixed navbar */
 }
+
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: var(--space-md);
+}
+
+/* ====================== */
+/* COMPONENTS */
+/* ====================== */
 
 /* Navigation */
 .navbar {
@@ -32,7 +58,7 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 1000;
+  z-index: 1100; /* Above AI assistant */
 }
 
 .logo {
@@ -45,13 +71,74 @@ body {
   color: var(--accent);
 }
 
-/* Car Animation */
+.nav-links {
+  display: flex;
+  gap: var(--space-lg);
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.nav-links .active {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Buttons */
+.cta-button {
+  background: var(--accent);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background: var(--accent-dark);
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--secondary);
+  border: 1px solid #444;
+  color: var(--text);
+  border-radius: 4px;
+}
+
+/* ====================== */
+/* PAGE-SPECIFIC STYLES */
+/* ====================== */
+
+/* Homepage - Track Animation */
 .track-animation {
   height: 100px;
   background: #333;
   position: relative;
   overflow: hidden;
-  margin: 2rem 0;
+  margin: var(--space-lg) 0;
   border-top: 3px solid var(--accent);
   border-bottom: 3px solid var(--accent);
 }
@@ -67,17 +154,30 @@ body {
   100% { left: 100%; }
 }
 
-/* Excel Upload */
-.data-upload {
-  background: var(--secondary);
-  padding: 2rem;
-  border-radius: 8px;
-  margin: 2rem 0;
+/* Drivers Page - Standings Table */
+#driverTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--space-lg);
 }
 
-/* Premium Content */
-.premium {
+#driverTable th, 
+#driverTable td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+
+#driverTable th {
+  background: var(--secondary);
+}
+
+.premium-content {
   position: relative;
+  background: var(--secondary);
+  padding: var(--space-md);
+  border-radius: 4px;
+  margin-top: var(--space-lg);
 }
 
 .premium-lock {
@@ -90,31 +190,46 @@ body {
   border-radius: 4px;
   font-size: 0.8rem;
 }
-/* [Your existing CSS content...] */
 
 /* ====================== */
-/* AI ASSISTANT STYLES */
+/* AI ASSISTANT */
 /* ====================== */
-
 #ai-assistant {
   position: fixed;
   bottom: 20px;
   right: 20px;
   width: 350px;
-  background: var(--secondary);
+  background: var(--ai-bg);
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   z-index: 1000;
   transition: all 0.3s ease;
+  will-change: transform, opacity;
 }
 
-/* [Rest of the AI styles from previous answer...] */
+.ai-header {
+  background: var(--ai-primary);
+  color: var(--ai-text);
+  padding: var(--space-md);
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-/* Make sure this comes AFTER the AI styles */
+/* ====================== */
+/* RESPONSIVE DESIGN */
+/* ====================== */
 @media (max-width: 768px) {
-  /* Your existing mobile styles... */
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
   
-  /* Mobile-specific AI adjustments */
+  .nav-links {
+    margin-top: var(--space-md);
+    gap: var(--space-md);
+  }
   
   #ai-assistant {
     width: 300px;
@@ -123,49 +238,14 @@ body {
   }
 }
 
-  
-:root {
-  /* [Your existing variables...] */
-  
-  /* AI Specific */
-  --ai-primary: var(--accent); /* Uses your red theme */
-  --ai-bg: var(--secondary);   /* Dark background */
-  --ai-text: #ffffff;
-  --ai-user-bg: #333333;
-}
-#ai-assistant {
-  background: var(--ai-bg);
-}
-
-.ai-header {
-  background: var(--ai-primary);
-  color: var(--ai-text);
-}
-
-.user-message .message-text {
-  background: var(--ai-user-bg);
-}
-.navbar {
-  z-index: 1100; /* Above AI */
-}
-.modal {
-  z-index: 1200; /* Above everything */
-}
 @media (max-width: 480px) {
   #ai-assistant {
     width: 90%;
     right: 5%;
-    bottom: 70px; /* Above mobile menu */
+    bottom: 70px;
   }
   
   .ai-chat {
     height: 300px;
   }
-}
-#ai-assistant {
-  will-change: transform, opacity;
-}
-
-.typing-indicator span {
-  will-change: transform;
 }
